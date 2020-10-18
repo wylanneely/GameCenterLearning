@@ -48,13 +48,18 @@ final class MenuScene: SKScene {
   
   override init() {
     super.init(size: .zero)
-    
+    displayGKAccessPoint()
     scaleMode = .resizeFill
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    
+    func displayGKAccessPoint(){
+        GKAccessPoint.shared.location = .topLeading
+        GKAccessPoint.shared.isActive = true
+    }
   
   override func didMove(to view: SKView) {
     super.didMove(to: view)
@@ -113,11 +118,17 @@ final class MenuScene: SKScene {
       x: viewWidth - (sceneMargin * 1.3),
       y: viewHeight - safeAreaTopInset - (sceneMargin * 1.25))
     addChild(sunNode)
+    
     localButton = ButtonNode("Local Game", size: buttonSize) {
-      self.view?.presentScene(GameScene(model: GameModel()), transition: self.transition) }
+        
+      self.view?.presentScene(GameScene(model: GameModel()), transition: self.transition)
+        
+    }
+    
     runningYOffset -= sceneMargin + logoNode.size.height
     localButton.position = CGPoint(x: sceneMargin, y: runningYOffset)
     addChild(localButton)
+    
     onlineButton = ButtonNode("Online Game", size: buttonSize) {
         GameCenterManager.manager.presentMatchmaker()
     }
