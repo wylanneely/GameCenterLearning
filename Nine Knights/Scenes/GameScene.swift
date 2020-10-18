@@ -175,6 +175,10 @@ final class GameScene: SKScene {
   }
   
   private func handleTouch(_ touch: UITouch) {
+    guard !isSendingTurn && GameCenterManager.manager.canTakeTurnForCurrentMatch else {
+        return
+    }
+
     guard model.winner == nil else {
       return
     }
@@ -361,6 +365,36 @@ final class GameScene: SKScene {
     } else {
       feedbackGenerator.impactOccurred()
       feedbackGenerator.prepare()
+        isSendingTurn = true
+
+        if model.winner != nil {
+          GameCenterManager.manager.win { error in
+            defer {
+              self.isSendingTurn = false
+            }
+            
+            if let e = error {
+              print("Error winning match: \(e.localizedDescription)")
+              return
+            }
+            
+            self.returnToMenu()
+          }
+        } else {
+          GameCenterManager.manager.endTurn(model) { error in
+            defer {
+              self.isSendingTurn = false
+            }
+
+            if let e = error {
+              print("Error ending turn: \(e.localizedDescription)")
+              return
+            }
+            
+            self.returnToMenu()
+          }
+        }
+
     }
   }
 }

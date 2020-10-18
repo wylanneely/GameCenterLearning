@@ -25,6 +25,7 @@
 		48DC82742145C80000FE3F7E /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC82732145C80000FE3F7E /* UIColor+Additions.swift */; };
 		48DC82782145E31B00FE3F7E /* InformationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC82772145E31B00FE3F7E /* InformationNode.swift */; };
 		E9799807253A72B600BCCD05 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9799806253A72B600BCCD05 /* GameKit.framework */; };
+		E979980F253BE94900BCCD05 /* LocalPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E979980E253BE94900BCCD05 /* LocalPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		48DC82772145E31B00FE3F7E /* InformationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationNode.swift; sourceTree = "<group>"; };
 		E9799806253A72B600BCCD05 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E9799808253A72BC00BCCD05 /* Nine Knights.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nine Knights.entitlements"; sourceTree = "<group>"; };
+		E979980E253BE94900BCCD05 /* LocalPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				48564298213F846B006C2E71 /* GameModel.swift */,
+				E979980E253BE94900BCCD05 /* LocalPlayer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,10 +151,10 @@
 				480789A5214416A1004AF234 /* Extensions */,
 				48944AE4214699F100DF76F4 /* Helpers */,
 				480789AC21442308004AF234 /* Models */,
-				481B9028213F7BAD00B258CB /* Nodes */,
 				480789A02144110C004AF234 /* Scenes */,
-				481215E6213CBD4F00AE0010 /* Supporting Files */,
+				481B9028213F7BAD00B258CB /* Nodes */,
 				48944AE3214699D300DF76F4 /* ViewControllers */,
+				481215E6213CBD4F00AE0010 /* Supporting Files */,
 			);
 			path = "Nine Knights";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				480789B021443784004AF234 /* GameCenterManager.swift in Sources */,
 				481B9027213F45AA00B258CB /* BoardNode.swift in Sources */,
 				481215E8213CC2DB00AE0010 /* GameScene.swift in Sources */,
+				E979980F253BE94900BCCD05 /* LocalPlayer.swift in Sources */,
 				480789AB21441975004AF234 /* ButtonNode.swift in Sources */,
 				48564294213F7CEB006C2E71 /* TokenNode.swift in Sources */,
 				480789A421441675004AF234 /* TouchNode.swift in Sources */,

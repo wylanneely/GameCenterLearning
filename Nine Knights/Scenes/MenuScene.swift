@@ -49,6 +49,7 @@ final class MenuScene: SKScene {
   override init() {
     super.init(size: .zero)
     displayGKAccessPoint()
+    GameCenterManager.manager.submitScoreToLeaderboard()
     scaleMode = .resizeFill
   }
   
@@ -130,7 +131,9 @@ final class MenuScene: SKScene {
     addChild(localButton)
     
     onlineButton = ButtonNode("Online Game", size: buttonSize) {
-        GameCenterManager.manager.presentMatchmaker()
+        
+        GameCenterManager.manager.presentGameCenterProfile()
+        
     }
     onlineButton.isEnabled = GameCenterManager.isAuthenticated
     runningYOffset -= sceneMargin + buttonSize.height
@@ -171,8 +174,8 @@ final class MenuScene: SKScene {
         model = GameModel()
       }
       
-     // GameCenterHelper.helper.currentMatch = match
-      // 4
+      GameCenterManager.manager.currentMatch = match
+      
       self.view?.presentScene(GameScene(model: model), transition: self.transition)
     }
   }
